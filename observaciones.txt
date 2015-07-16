@@ -1,0 +1,11 @@
+REQUERIMIENTOS Y CASOS DE USO
+----------------------------
+- Son mas como requerimientos del usuario, falta un poco de detalle para que se conviertan en requerimientos del sistema, pero eso se puede salvar con la descripción de los casos de uso
+- El utlimo de tus requerimientos funcionales es en realidad un NO FUNCIONAL
+- Falta describir cada caso de uso
+Se ve bien, SIGUE ADELANTE!
+
+SEGUNDA ENTREGA
+---------------------
+- Hiciste un merge de las observaciones OK
+- No has hecho push de tus commits

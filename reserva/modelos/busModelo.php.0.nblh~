@@ -1,0 +1,48 @@
+<?php
+
+class busModelo extends Modelo {
+
+    public function __construct() {
+        parent::__construct();
+    }
+
+    public function insertar($datos) {
+        $this->_bd->ejecutar('INSERT INTO bus VALUES(NULL, ?, ?, ?)', $datos);
+    }
+
+    public function existePlaca($placa) {
+        return $this->_bd->getScalar('SELECT id FROM bus WHERE placa = ?', $placa);
+    }
+
+    public function contar() {
+        return $this->_bd->getScalar('SELECT COUNT(id) FROM bus');
+    }
+ 
+    public function listar($pagina) {
+        $pagina = ($pagina - 1) * REG_PAG;
+        return $this->_bd->getArray('SELECT b.id,  b.placa,  b.capacidad, e.nombre  AS empl FROM bus AS b   INNER JOIN empleado AS e ON b.empleado_id=e.id '. $pagina . ', ' . REG_PAG);
+    }
+    public function listar1($pagina) {
+        $pagina = ($pagina - 1) * REG_PAG;
+        return $this->_bd->getArray('SELECT e.id, e.dni, e.nombre, e.telefono, e.fech_naci, e.area, c.nombre AS nombciu FROM empleado AS e LEFT JOIN ciudad AS c ON e.ciudad_id = c.id ORDER BY e.id DESC LIMIT ' . $pagina . ', ' . REG_PAG);
+    }
+
+
+    public function get($id) {
+        return $this->_bd->getFila('SELECT * FROM bus WHERE id = ?', $id);
+    }
+
+    public function editar($datos) {
+        $this->_bd->ejecutar('UPDATE bus SET placa=?, capacidad=?, empleado_id=? WHERE id = ?', $datos);
+    }
+
+    public function eliminar($id) {
+        $this->_bd->ejecutar('DELETE FROM bus WHERE id = ?', $id);
+    }
+        public function buscarPlaca($placa) {
+        return $this->_bd->getArray('SELECT * FROM bus WHERE placa LIKE ?', $placa . '%');
+    }
+
+
+
+}

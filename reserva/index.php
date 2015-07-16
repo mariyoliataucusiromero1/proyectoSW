@@ -1,6 +1,12 @@
-<?php
+<?php
 /**
  * Archivo principal de la aplicacion
+ * 
+ * En este archivo se declaran constantes para incluir todos los archivos de la
+ * carpeta 'aplicacion', por favor no modifique este archivo si no esta capacitado
+ * 
+ * @license http://creativecommons.org/licenses/by-sa/2.5/pe/ Atribucion-CompartirIgual 2.5 Peru
+ */
 /**
  * Separador de directorio, constante que almacena el separador de directorio puede ser '/' o '\'
  */
@@ -8,7 +14,7 @@ define('SD', DIRECTORY_SEPARATOR);
 
 /**
  * Ruta base, constante que almacena la ruta raiz de la aplicacion, es decir 
- * el directorio donde esta el archivo index.php
+ * el directorio donde esta el archivo index.php
  */
 define('RAIZ', realpath(dirname(__FILE__)) . SD);
 

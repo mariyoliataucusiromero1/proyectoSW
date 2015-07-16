@@ -1,0 +1,16 @@
+<ul class="menu derecha">
+    <li>
+        <?php if (Sesion::get('iniciado')): ?>
+            <a href="#"><?php echo Sesion::get('nombre') ?></a>
+            <ul>
+                <li><a href="login/salir">Salir (x)</a></li>
+            </ul>
+        <?php else: ?>
+            <a href="login">Acceder</a>        
+    </li>
+    <li>
+           <a href="registrar">Registrate</a>   
+        <?php endif; ?>
+    </li>
+</ul>
+<p class="clear"></p>

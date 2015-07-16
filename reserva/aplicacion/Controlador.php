@@ -326,4 +326,13 @@ abstract class Controlador {
         return FALSE;
     }
 
+    protected function getDecimal($clave) {
+        if (!is_null($this->post[$clave])) {
+            if (preg_match('/^([0-9]+|[0-9]+\.[0-9]+)$/', $this->post[$clave])) {
+                return TRUE;
+            }
+        }
+        return FALSE;
+    }
+
 }

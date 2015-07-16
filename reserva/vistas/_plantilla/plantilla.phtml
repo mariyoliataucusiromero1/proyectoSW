@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta lang="es" charset="utf-8">
+        <base href="<?php echo URL_BASE ?>">
+        <title><?php echo $this->titulo . ' | ' . DOMINIO ?></title>
+        <meta name="description" content="<?php echo META . ' | ' . DOMINIO ?>">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="<?php echo $this->_plantilla; ?>css/plantilla.css" media="all" type="text/css">  
+        <link rel="stylesheet" href="<?php echo $this->_plantilla; ?>css/responsive.css" media="all" type="text/css">  
+        <?php for ($i = 0; $i < count($this->_css); $i++) : ?>
+            <link rel="stylesheet" href="<?php echo $this->_css[$i] ?>" media="all" type="text/css"> 
+        <?php endfor; ?>
+        <link rel="shortcut icon" href="<?php echo $this->_plantilla ?>favicon.ico">
+        <script type="text/javascript" src="<?php echo $this->_plantilla ?>js/jquery-1.8.2.min.js"></script>
+        <script type="text/javascript" src="<?php echo $this->_plantilla ?>js/core.js"></script>
+        <?php for ($i = 0; $i < count($this->_js); $i++) : ?>
+            <script type="text/javascript" src="<?php echo $this->_js[$i] ?>"></script>
+        <?php endfor; ?>
+    </head>
+    <body>
+        <div id="limites">
+            <div class="logo">
+                <img src="<?php echo $this->_plantilla ?>img/portada.gif" alt="portada">
+            </div>
+            <?php if (!Sesion::get('autenticado')) : ?>
+                <div id="cabeza">
+                    <h1><a href="<?php echo URL_BASE ?>">Reserva YA</a></h1>
+                    <?php require_once RAIZ . 'vistas' . SD . '_plantilla' . SD . 'menu.phtml' ?>                
+                </div>
+            <?php endif; ?>
+            <div id="cuerpo">
+                <?php echo $this->contenido ?>
+            </div>
+            <div class="logo">
+                <img src="<?php echo $this->_plantilla ?>img/portada.gif" alt="portada">
+            </div>            
+        </div>
+        <div id="cargando"></div>
+        <div id="marco">
+            <div class="ventana">
+                <img alt="cagando" src="<?php echo $this->_plantilla ?>img/cargando.gif">
+            </div>
+        </div>
+    </body>
+</html>

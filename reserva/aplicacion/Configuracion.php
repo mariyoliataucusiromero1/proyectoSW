@@ -16,13 +16,13 @@ define('BD_NAME', 'bdrc');
 define('TIEMPO_SESION', 60);
 
 /**Nombre de la aplicacion*/
-define('TITULO', 'Sistemas de Reserba de Cancha');
+define('TITULO', 'Reserba de Cancha');
 
 /**Descripcion de la aplicacion*/
-define('META', 'Sistemas de Reserba de Cancha');
+define('META', 'Reserva de Cancha');
 
 /**dominio de la aplicacion*/
-define('DOMINIO', 'Sistemas_Reserba');
+define('DOMINIO', ' Reserva de Cancha');
 
 /**Numero de registros por pagina para la paginacion*/
 define('REG_PAG', 10);

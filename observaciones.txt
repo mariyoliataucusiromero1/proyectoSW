@@ -9,3 +9,8 @@ SEGUNDA ENTREGA
 ---------------------
 - Hiciste un merge de las observaciones OK
 - No has hecho push de tus commits
+
+Tercera entrega
+-----------------------------------
+. esta bien hacer commits frecuentes, pero cada commit debe tener un nombre significativo que describa lo que hace hasta ese punto
+- haz commits mas frecuentes y con nombre signifiativos

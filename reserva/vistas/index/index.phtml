@@ -1,0 +1,18 @@
+<div class="login_head">
+    <h2>Acceder</h2>
+    <ul class="opciones">
+        <li>
+            <form>
+                <input type="text" placeholder="Buscar">
+            </form>
+        </li>
+        <li><a href="#">Listar</a></li>
+        <li><a href="#">Nuevo</a></li>
+    </ul>
+    <p class="clear"></p>
+</div>
+<div class="login_body">
+    <?php if (Sesion::get('iniciado')): ?>
+    <p>Hola: <?php echo Sesion::get('nombre')  ?></p>
+    <?php endif; ?>
+</div>  

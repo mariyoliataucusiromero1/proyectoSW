@@ -3,14 +3,20 @@
     <li>
         <a href="cancha">Cancha</a>
         <ul>
-            <li><a href="cancha/listar">Canchas</a></li> 
+            <li><a href="cancha/listar">Mis Canchas</a></li> 
+            <li><a href="cancha/listarCancha">Todas las Canchas</a></li> 
         </ul>
     </li>
     
 </ul>
 <?php elseif (Sesion::get('rol') && Sesion::get('rol') == 'usu') : ?>
 <ul class="menu">
-    
+    <li>
+        <a href="#">Cancha</a>
+        <ul>
+            <li><a href="cancha/listarCancha">Canchas</a></li> 
+        </ul>
+    </li>
     
 </ul>
 <?php endif; ?>

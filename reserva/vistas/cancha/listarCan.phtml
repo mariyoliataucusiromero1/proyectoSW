@@ -24,18 +24,14 @@
     <?php endif; ?>
     <?php if ($this->dato) : ?>
         <table class="tabla">
-            <tr><th>Nombre</th><th>Ubicacion</th><th class="opc4">Opción</th></tr>
+            <tr><th>Nombre</th><th>Ubicacion</th><th class="opc3">Opción</th></tr>
                     <?php for ($i = 0; $i < count($this->dato); $i++) : ?>
                 <tr>
                     <td><?php echo $this->dato[$i]['nombre'] ?></td>
                     <td><?php echo $this->dato[$i]['ubicacion'] ?></td>
                     <td>
-                        <a href="cancha/editar/<?php echo $this->dato[$i]['id'] ?>">
-                            <img src="<?php echo $this->_plantilla ?>img/edit.png" title="Editar"></a> |
-                        <a href="cancha/eliminar/<?php echo $this->dato[$i]['id'] ?>">
-                            <img src="<?php echo $this->_plantilla ?>img/delete.png" title="Eliminar"></a> |
                         <a href="reserva/listar/<?php echo $this->dato[$i]['id'] ?>">
-                            <img src="<?php echo $this->_plantilla ?>img/res.jpg" title="Ver reservas"></a>
+                            <img src="<?php echo $this->_plantilla ?>img/res.jpg" title="Hacer reserva"></a>
                     </td>
                 </tr>
             <?php endfor; ?>            

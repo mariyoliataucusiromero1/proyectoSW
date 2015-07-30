@@ -19,6 +19,9 @@ class canchaModelo extends Modelo {
     public function listar() {
         return $this->_bd->getArray('SELECT * FROM cancha WHERE admin_id = ?', array(Sesion::get('id')));
     }
+    public function listarCancha() {
+        return $this->_bd->getArray('SELECT * FROM cancha');
+    }
     public function existeUbicacion($ubicacion) {
         return $this->_bd->getScalar('SELECT id FROM cancha WHERE ubicacion = ?', $ubicacion);
     }

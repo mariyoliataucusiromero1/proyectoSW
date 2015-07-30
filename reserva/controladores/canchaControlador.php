@@ -43,6 +43,14 @@ class canchaControlador extends Controlador {
         $this->_vista->setJs('cancha');
         $this->_vista->renderizar('listar');
     }
+    public function listarCancha() {
+        $this->_modelo = $this->getModelo('cancha');
+        $this->_vista->dato = $this->_modelo->listarCancha();
+        $this->_vista->titulo = 'Lista de cancha';
+        $this->_vista->renderizar('listarCan');
+        $this->_vista->setJs('cancha');
+        $this->_vista->renderizar('listarCan');
+    }
     public function editar($id) {
         $id = $this->aInt($id);
         if (!$id) {

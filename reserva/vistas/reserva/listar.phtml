@@ -1,5 +1,5 @@
 <div class="login_head">
-    <h2>Cancha</h2>
+    <h2>Reserva</h2>
     <ul class="opciones">
         <li>
             <form class="buscar_nombre">
@@ -24,14 +24,15 @@
     <?php endif; ?>
     <?php if ($this->dato) : ?>
         <table class="tabla">
-            <tr><th>Nombre</th><th>Ubicacion</th><th class="opc3">Opción</th></tr>
+            <tr><th>Nombre</th><th>fecha</th><th>hora</th><th class="opc4">Opción</th></tr>
                     <?php for ($i = 0; $i < count($this->dato); $i++) : ?>
                 <tr>
                     <td><?php echo $this->dato[$i]['nombre'] ?></td>
-                    <td><?php echo $this->dato[$i]['ubicacion'] ?></td>
+                    <td><?php echo $this->dato[$i]['fecha'] ?></td>
+                    <td><?php echo $this->dato[$i]['hora'] ?></td>
                     <td>
-                        <a href="reserva/nueva/<?php echo $this->dato[$i]['id'] ?>">
-                            <img src="<?php echo $this->_plantilla ?>img/res.jpg" title="Hacer reserva"></a>
+                        <a href="reserva/eliminar/<?php echo $this->dato[$i]['id'] ?>">
+                            <img src="<?php echo $this->_plantilla ?>img/delete.png" title="Eliminar"></a>
                     </td>
                 </tr>
             <?php endfor; ?>            

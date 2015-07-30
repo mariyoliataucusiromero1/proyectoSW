@@ -43,5 +43,62 @@ class canchaControlador extends Controlador {
         $this->_vista->setJs('cancha');
         $this->_vista->renderizar('listar');
     }
+    public function editar($id) {
+        $id = $this->aInt($id);
+        if (!$id) {
+            $this->redireccionar('cancha/listar');
+        }
+        $this->_modelo = $this->getModelo('cancha');
+        $this->_vista->dato = $this->_modelo->get($id);
+        if (!$this->_vista->dato) {
+            $this->redireccionar('cancha/listar');
+        }
+        if ($this->getInt('guardar')) {
+            $this->_vista->dato = $this->post;
+            if (!$this->getTex('nombre')) {
+                $this->_vista->error[] = 'Nombre no válido.';
+            }
+            if (!$this->getTex('ubicacion')) {
+                $this->_vista->error[] = 'Ubicacion  no válido.';
+            } elseif ($this->_modelo->existeUbicacion($this->post['ubicacion'])) {
+                $this->_vista->error[] = 'Ubicacion ya existe.';
+            }
+            if (!isset($this->_vista->error)) {
+                $this->quitar('guardar');
+                $this->setPost('id', $id);
+                $this->_modelo->editar($this->getPost());
+                Sesion::set('_msg', 'Se ha guardado su operación');
+                $this->redireccionar('cancha/listar');
+            }
+        }
+        $this->_vista->titulo = 'Editar cancha';
+        $this->_vista->renderizar('nuevo');
+    }
+
+    public function eliminar($id) {
+        $id = $this->aInt($id);
+        if (!$id) {
+            $this->redireccionar('cancha/listar');
+        }
+        $this->_modelo = $this->getModelo('cancha');
+        $this->_vista->dato = $this->_modelo->get($id);
+        if (!$this->_vista->dato) {
+            $this->redireccionar('cancha/listar');
+        }
+        if ($this->getInt('guardar')) {
+            $this->_modelo->eliminar($id);
+            Sesion::set('_msg', 'Se ha eleiminado un cancha');
+            $this->redireccionar('cancha/listar');
+        }
+        $this->_vista->titulo = '¿Desea eliminar el cancha ' . $this->_vista->dato['nombre'] . '?';
+        $this->_vista->renderizar('eliminar');
+    }
+    
+        public function canchacar_placa($placa) {
+        $this->_modelo = $this->getModelo('cancha');
+        $this->_vista->dato = $this->_modelo->canchacarPlaca($placa);
+        $this->_vista->renderizar('canchacar', TRUE);
+
+    }
 
 }

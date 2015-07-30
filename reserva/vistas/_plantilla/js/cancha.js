@@ -1,9 +1,9 @@
 $(function(){
     
-    $('.buscar_placa').submit(function(evt){
-        var _placa = $('#placa').val();
+    $('.buscar_cancha').submit(function(evt){
+        var _cancha = $('#cancha').val();
         $.ajax({
-            url: 'bus/buscar_placa/' + _placa,
+            url: 'cancha/buscar_cancha/' + _cancha,
             success: function (data){
                 $('.login_body').html(data);
                 cargado();

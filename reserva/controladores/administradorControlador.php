@@ -55,6 +55,12 @@ class administradorControlador extends Controlador {
         $this->_vista->titulo = 'Nuevo administrador';
         $this->_vista->renderizar('nuevo');
     }
+    public function buscar_cancha($nombre) {
+        $this->_modelo = $this->getModelo('cancha');
+        $this->_vista->dato = $this->_modelo->buscarCancha($nombre);
+        $this->_vista->renderizar('buscar', TRUE);
+
+    }
 
     
 

@@ -46,7 +46,8 @@ class usuarioControlador extends Controlador {
                 
                 Sesion::set('iniciado', TRUE);
                 Sesion::set('nombre',$this->post['nombre']);
-                Sesion::set('rol', $this->post['rol']);
+                Sesion::set('rol', 'usu');
+                Sesion::set('id', $this->post['id']);
                 $this->redireccionar();
             }
         }

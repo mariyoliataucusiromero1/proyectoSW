@@ -25,6 +25,7 @@ class loginControlador extends Controlador {
             if ($usua) {
                 Sesion::set('iniciado', TRUE);
                 Sesion::set('nombre', $usua['nombre']);
+                Sesion::set('id', $usua['id']);
                 Sesion::set('rol', $this->post['rol']);
                 $this->redireccionar();
             }

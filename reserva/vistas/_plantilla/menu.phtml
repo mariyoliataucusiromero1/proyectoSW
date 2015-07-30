@@ -1,3 +1,19 @@
+<?php if (Sesion::get('rol') && Sesion::get('rol') == 'admin') : ?>
+<ul class="menu">
+    <li>
+        <a href="cancha">Cancha</a>
+        <ul>
+            <li><a href="cancha/listar">Canchas</a></li> 
+        </ul>
+    </li>
+    
+</ul>
+<?php elseif (Sesion::get('rol') && Sesion::get('rol') == 'usu') : ?>
+<ul class="menu">
+    
+    
+</ul>
+<?php endif; ?>
 <ul class="menu derecha">
     <li>
         <?php if (Sesion::get('iniciado')): ?>

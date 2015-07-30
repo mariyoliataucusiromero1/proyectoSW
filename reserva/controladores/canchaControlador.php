@@ -43,6 +43,40 @@ class canchaControlador extends Controlador {
         $this->_vista->setJs('cancha');
         $this->_vista->renderizar('listar');
     }
+    public function calificar($id) {
+        $id = $this->aInt($id);
+        if (!$id) {
+            $this->redireccionar('cancha/listar');
+        }
+        print($id);
+        if ($this->getInt('guardar')) {
+            $this->_vista->dato = $this->post;
+            $this->_modelo = $this->getModelo('cancha');
+            $a = $this->_modelo->existeCancha($id);
+            $c = $this->_modelo->existeCalificacion($id);
+            if ($this->post['calificacion'] == 1) {
+                $cal = ($c + 1)/2;
+            } elseif ($this->post['calificacion'] == 2) {
+                $cal = ($c + 2)/2;
+            } elseif ($this->post['calificacion'] == 3) {
+                $cal = ($c + 3)/2;
+            } elseif ($this->post['calificacion'] == 4) {
+                $cal = ($c + 4)/2;
+            } elseif ($this->post['calificacion'] == 5) {
+                $cal = ($c + 5)/2;
+            }            
+            if (!isset($this->_vista->error)) {
+                $this->quitar('guardar');
+                $this->setPost('calificacion', $cal);
+                $this->setPost('id', ($a));
+                $this->_modelo->calificar($this->getPost());
+                Sesion::set('_msg', 'Se ha calificado la cancha');
+                $this->redireccionar('cancha/listarCancha');
+            }
+        }
+        $this->_vista->titulo = 'Calificar Cancha';
+        $this->_vista->renderizar('calificar');
+    }
     public function listarCancha() {
         $this->_modelo = $this->getModelo('cancha');
         $this->_vista->dato = $this->_modelo->listarCancha();
@@ -102,10 +136,10 @@ class canchaControlador extends Controlador {
         $this->_vista->renderizar('eliminar');
     }
     
-        public function canchacar_placa($placa) {
+        public function buscar_cancha($nobre) {
         $this->_modelo = $this->getModelo('cancha');
-        $this->_vista->dato = $this->_modelo->canchacarPlaca($placa);
-        $this->_vista->renderizar('canchacar', TRUE);
+        $this->_vista->dato = $this->_modelo->buscarCancha($nombre);
+        $this->_vista->renderizar('buscar', TRUE);
 
     }
 

@@ -1,7 +1,7 @@
 <?php if (Sesion::get('rol') && Sesion::get('rol') == 'admin') : ?>
 <ul class="menu">
     <li>
-        <a href="cancha">Cancha</a>
+        <a href="#">Cancha</a>
         <ul>
             <li><a href="cancha/listar">Mis Canchas</a></li> 
             <li><a href="cancha/listarCancha">Todas las Canchas</a></li> 
@@ -15,6 +15,12 @@
         <a href="#">Cancha</a>
         <ul>
             <li><a href="cancha/listarCancha">Canchas</a></li> 
+        </ul>
+    </li>
+    <li>
+        <a href="#">Reserva</a>
+        <ul>
+            <li><a href="reserva/listar">Lista</a></li> 
         </ul>
     </li>
     

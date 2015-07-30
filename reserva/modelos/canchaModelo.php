@@ -28,6 +28,17 @@ class canchaModelo extends Modelo {
     public function editar($datos) {
         $this->_bd->ejecutar('UPDATE cancha SET nombre=?, ubicacion=? WHERE id = ?', $datos);
     }
+    public function existeCancha($id) {
+        return $this->_bd->getScalar('SELECT cancha.id FROM cancha INNER JOIN reserva ON reserva.cancha_id=cancha.id and reserva.id = ?', $id);
+    }
+    public function existeCalificacion($id) {
+        return $this->_bd->getScalar('SELECT calificacion FROM cancha INNER JOIN reserva ON reserva.cancha_id=cancha.id and reserva.id = ?', $id);
+    }
+    
+    public function calificar($datos) {
+        $this->_bd->ejecutar('UPDATE bdrc.cancha SET calificacion = ? WHERE cancha.id = ?', $datos);
+        
+    }
 
     public function eliminar($id) {
         $this->_bd->ejecutar('DELETE FROM cancha WHERE id = ?', $id);

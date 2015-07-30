@@ -42,6 +42,13 @@ class reservaControlador extends Controlador {
         $this->_vista->titulo = 'Lista de tus reservas';
         $this->_vista->renderizar('listar');
     }
+    public function listarMio($pagina = 1) {
+        $this->_modelo = $this->getModelo('reserva');
+        $this->_vista->getPaginacion($pagina, $this->_modelo->contar(Sesion::get('id')), 'reserva/listar/');
+        $this->_vista->dato = $this->_modelo->listarMio(Sesion::get('id'), $this->_vista->pactual);
+        $this->_vista->titulo = 'Lista de tus reservas';
+        $this->_vista->renderizar('listarMio');
+    }
 
     public function ver_horas($cancha, $fecha) {
         //la fecha viene en dd-mm-yyyy lo volteamoa a yyyy-mm-dd

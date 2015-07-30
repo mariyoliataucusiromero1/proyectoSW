@@ -24,11 +24,18 @@
     <?php endif; ?>
     <?php if ($this->dato) : ?>
         <table class="tabla">
-            <tr><th>Nombre</th><th>Ubicacion</th><th class="opc3">Opción</th></tr>
+            <tr><th>Nombre</th><th>Ubicacion</th><th>Caificacion</th><th class="opc3">Opción</th></tr>
                     <?php for ($i = 0; $i < count($this->dato); $i++) : ?>
                 <tr>
                     <td><?php echo $this->dato[$i]['nombre'] ?></td>
                     <td><?php echo $this->dato[$i]['ubicacion'] ?></td>
+                    <td><?php if ($this->dato[$i]['calificacion'] == 1):?> <?php echo "muy malo"?>
+                        <?php elseif ($this->dato[$i]['calificacion'] == 2):?> <?php echo "Malo"?>
+                        <?php elseif ($this->dato[$i]['calificacion'] == 3):?> <?php echo "Regular"?>
+                        <?php elseif ($this->dato[$i]['calificacion'] == 4):?> <?php echo "Bueno"?>
+                        <?php elseif ($this->dato[$i]['calificacion'] == 5):?> <?php echo "Muy bueno"?>
+                        <?php else:  echo "Sin calificacion"?></td>
+                        <?php endif; ?>
                     <td>
                         <a href="reserva/nueva/<?php echo $this->dato[$i]['id'] ?>">
                             <img src="<?php echo $this->_plantilla ?>img/res.jpg" title="Hacer reserva"></a>

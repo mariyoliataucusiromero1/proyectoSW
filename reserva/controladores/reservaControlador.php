@@ -90,5 +90,23 @@ class reservaControlador extends Controlador {
         $this->_vista->dispo = $dispo;
         $this->_vista->renderizar('ver_horas', TRUE);
     }
+    public function eliminar($id) {
+        $id = $this->aInt($id);
+        if (!$id) {
+            $this->redireccionar('reserva/listar');
+        }
+        $this->_modelo = $this->getModelo('reserva');
+        $this->_vista->dato = $this->_modelo->get($id);
+        if (!$this->_vista->dato) {
+            $this->redireccionar('reserva/listar');
+        }
+        if ($this->getInt('guardar')) {
+            $this->_modelo->eliminar($id);
+            Sesion::set('_msg', 'Se ha eleiminado un reservacion');
+            $this->redireccionar('reserva/listar');
+        }
+        $this->_vista->titulo = '¿Desea eliminar la reservacion de la hora ' . $this->_vista->dato['hora'] . '?';
+        $this->_vista->renderizar('eliminar');
+    }
 
 }

@@ -26,5 +26,11 @@ class reservaModelo extends Modelo {
         $pagina = ($pagina - 1) * REG_PAG;
         return $this->_bd->getArray('SELECT reserva.*, cancha.nombre FROM reserva INNER JOIN cancha ON reserva.cancha_id=cancha.id and cancha.admin_id = ? ORDER BY reserva.id LIMIT ' . $pagina . ',' . REG_PAG, array(Sesion::get('id')));
     }
+    public function eliminar($id) {
+        $this->_bd->ejecutar('DELETE FROM reserva WHERE id = ?', $id);
+    }
+    public function get($id) {
+        return $this->_bd->getFila('SELECT * FROM reserva WHERE id = ?', $id);
+    }
 
 }

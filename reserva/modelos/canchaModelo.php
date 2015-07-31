@@ -6,7 +6,7 @@ class canchaModelo extends Modelo {
     }
     
     public function insertar($datos) {
-        $this->_bd->ejecutar('INSERT INTO cancha VALUES(NULL, ?, ?, ?)', $datos);
+        $this->_bd->ejecutar('INSERT INTO cancha VALUES(NULL, ?, ?, ?, NULL)', $datos);
     }
     
     public function contar() {

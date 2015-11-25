@@ -15,12 +15,12 @@ class reservaModelo extends Modelo {
     }
 
     public function contar($usuario_id) {
-        return $this->_bd->getScalar('SELECT COUNT(id) FROM reserva WHERE usuario_id=?', array($usuario_id));
+        return $this->_bd->getScalar('SELECT COUNT(id) FROM reserva WHERE usuario=?', array($usuario_id));
     }
 
     public function listar($usuario_id, $pagina) {
         $pagina = ($pagina - 1) * REG_PAG;
-        return $this->_bd->getArray('SELECT reserva.*, cancha.nombre FROM reserva INNER JOIN cancha ON reserva.cancha_id=cancha.id WHERE reserva.usuario_id = ? ORDER BY reserva.id LIMIT ' . $pagina . ',' . REG_PAG, array($usuario_id));
+        return $this->_bd->getArray('SELECT reserva.*, cancha.nombre FROM reserva INNER JOIN cancha ON reserva.cancha_id=cancha.id WHERE reserva.usuario = ? ORDER BY reserva.id LIMIT ' . $pagina . ',' . REG_PAG, array($usuario_id));
     }
     public function listarMio($usuario_id, $pagina) {
         $pagina = ($pagina - 1) * REG_PAG;

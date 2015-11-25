@@ -24,9 +24,13 @@
                     <td><?php echo $this->dato[$i]['hora'] ?></td>
                     <td>
                         <a href="reserva/eliminar/<?php echo $this->dato[$i]['id'] ?>">
-                            <img src="<?php echo $this->_plantilla ?>img/delete.png" title="Eliminar     "></a>              |
-                        <a href="cancha/calificar/<?php echo $this->dato[$i]['id'] ?>">
-                            <img src="<?php echo $this->_plantilla ?>img/calificar.jpg" title="Calificar"></a>
+                            <img src="<?php echo $this->_plantilla ?>img/delete.png" title="Eliminar     "></a>  
+
+                        <?php if (Sesion::get('rol') && Sesion::get('rol') == 'usu') : ?>  
+                        |<a href="cancha/calificar/<?php echo $this->dato[$i]['id'] ?>">
+                            <img src="<?php echo $this->_plantilla ?>img/calificar.gif" title="Calificar"></a>
+                        <?php endif;?>
+                        
                     </td>
                     </td>
                 </tr>

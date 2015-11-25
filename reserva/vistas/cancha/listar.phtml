@@ -1,11 +1,6 @@
 <div class="login_head">
     <h2>Cancha</h2>
     <ul class="opciones">
-        <li>
-            <form class="buscar_nombre">
-                <input type="text" name="nombre" id="nombre" class="no mediano" required placeholder="Buscar nobre"> 
-            </form>
-        </li>
         <li><a href="cancha/listar">Listar</a></li>
         <li><a href="cancha/nuevo">Nuevo</a></li>
     </ul>
@@ -35,7 +30,9 @@
                         <a href="cancha/eliminar/<?php echo $this->dato[$i]['id'] ?>">
                             <img src="<?php echo $this->_plantilla ?>img/delete.png" title="Eliminar"></a> |
                         <a href="reserva/listarMio/<?php echo $this->dato[$i]['id'] ?>">
-                            <img src="<?php echo $this->_plantilla ?>img/correcto.png" title="Ver reservas"></a>
+                            <img src="<?php echo $this->_plantilla ?>img/correcto.png" title="Ver reservas"></a>|
+                        <a href="reserva/nueva/<?php echo $this->dato[$i]['id'] ?>">
+                            <img src="<?php echo $this->_plantilla ?>img/res.png" title="Hacer reserva"></a>
                     </td>
                 </tr>
             <?php endfor; ?>            

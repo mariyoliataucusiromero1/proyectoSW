@@ -27,6 +27,7 @@ class reservaControlador extends Controlador {
                 $this->_modelo->insertar($this->post['cancha_id'], Sesion::get('id'), $this->fechaMysql($this->post['fecha']), $this->post['hora']);
                 Sesion::set('_msg', 'Se ha reservado su cancha');
                 $this->redireccionar('reserva/listar');
+                              
             }
         }
         $this->_vista->setJs('reserva');
